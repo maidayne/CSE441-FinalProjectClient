@@ -27,7 +27,7 @@ const LoginScreen = ({ navigation }) => {
     setLoading(true);
     try {
       // Gửi yêu cầu đăng nhập
-      const response = await axios.post('http://192.168.1.102:5000/api/auth/login', {
+      const response = await axios.post('http://10.60.248.178:5000/api/auth/login', {
         user_email: email,
         user_password: password,
         checkMessage: "Login to account",
@@ -40,6 +40,7 @@ const LoginScreen = ({ navigation }) => {
         Alert.alert('Success', 'Logged in successfully!');
         
         await AsyncStorage.setItem('userToken', response.data.token);
+        await AsyncStorage.setItem('userEmail', email);
         navigation.navigate('Main');
       }
     } catch (error) {
@@ -90,20 +91,19 @@ const LoginScreen = ({ navigation }) => {
   );
 };
 
-// Style của màn hình Login
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#D0D6D4',
+    backgroundColor: '#F3DBE9',
     padding: 20,
   },
   heading: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#00285D',
+    color: '#E35883',
   },
   input: {
     width: '100%',

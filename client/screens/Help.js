@@ -1,17 +1,17 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Alert } from 'react-native';
 
 const Help = () => {
   const handleContactSupport = () => {
-    console.log('Contacting support...');
+    Alert.alert('Support Information', 'https://www.facebook.com/profile.php?id=100011289314069');
   };
 
   const handleFAQ = () => {
-    console.log('Redirecting to FAQ page...');
+    Alert.alert('Redirecting to FAQ page...');
   };
 
   const handleTroubleshoot = () => {
-    console.log('Opening troubleshooting guide...');
+    Alert.alert('Opening troubleshooting guide...');
   };
 
   return (
@@ -50,20 +50,20 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 26,
     fontWeight: '700',
-    color: '#333',
+    color: '#E35883',
     marginBottom: 10,
     textAlign: 'center',
   },
   description: {
     fontSize: 16,
     fontWeight: '400',
-    color: '#555',
+    color: '#333',
     marginBottom: 20,
     textAlign: 'center',
     lineHeight: 24,
   },
   optionButton: {
-    backgroundColor: '#007BFF', 
+    backgroundColor: '#8EA946', 
     paddingVertical: 14,
     paddingHorizontal: 40,
     borderRadius: 8,

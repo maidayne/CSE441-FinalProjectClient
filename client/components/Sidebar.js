@@ -5,15 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 const Sidebar = () => {
   const navigation = useNavigation();
 
-  // Sample username
-  const username = 'John Doe';
-
   return (
     <View style={styles.container}>
-      <View style={styles.profileContainer}>
-        <Text style={styles.username}>{username}</Text>
-      </View>
-
       <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Dashboard')}>
         <Text style={styles.menuText}>Dashboard</Text>
       </TouchableOpacity>
@@ -43,35 +36,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#F1BA99',
+    backgroundColor: '#FFFFFF',
     justifyContent: 'flex-start',
-  },
-  profileContainer: {
-    marginBottom: 30,
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-    borderRadius: 8,
-    marginBottom: 20,
-    alignItems: 'center',
-  },
-  username: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#6E3C2F',
   },
   menuItem: {
     marginBottom: 20,
     paddingVertical: 10,
     paddingHorizontal: 15,
     borderRadius: 8,
-    backgroundColor: '#FFFCF6',
+    backgroundColor: '#F3DBE9',
     justifyContent: 'center',
     alignItems: 'center',
   },
   menuText: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#713E31',
+    color: '#E35883',
     textAlign: 'center',
   },
 });

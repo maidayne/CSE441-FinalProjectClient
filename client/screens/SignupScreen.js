@@ -139,7 +139,7 @@ const SignupScreen = ({ navigation }) => {
 
     try {
       // Send signup request to backend
-      const response = await axios.post('http://192.168.1.102:5000/api/auth/register', {
+      const response = await axios.post('http://10.60.248.178:5000/api/auth/register', {
         user_full_name: username,
         user_email: email,
         user_password: password,
@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button: {
-    backgroundColor: '#7CA267',
+    backgroundColor: '#8EA946',
     paddingVertical: 12,
     width: '100%',
     borderRadius: 8,
