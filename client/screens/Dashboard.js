@@ -184,7 +184,7 @@ const Dashboard = () => {
       // Fetch the user ID (or get it from the token payload if needed)
       const userId = await AsyncStorage.getItem('userId');  // You might store this when user logs in
 
-      const response = await fetch('http://10.60.248.178:5000/api/board/getBoardsByUserId', {
+      const response = await fetch('http://192.168.1.103:5000/api/board/getBoardsByUserId', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

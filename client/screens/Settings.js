@@ -309,7 +309,7 @@ const Settings = ({ navigation }) => { // Add navigation prop
 
     // Gửi yêu cầu thay đổi mật khẩu lên server
     try {
-      const response = await fetch('http://10.60.248.178:5000/api/auth/changePassword', {
+      const response = await fetch('http://192.168.1.103:5000/api/auth/changePassword', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

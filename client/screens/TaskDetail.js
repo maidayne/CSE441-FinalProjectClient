@@ -17,7 +17,7 @@ const TaskDetail = () => {
         return;
       }
 
-      const response = await fetch('http://10.60.248.178:5000/api/board/getBoard', {
+      const response = await fetch('http://192.168.1.103:5000/api/board/getBoard', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ const TaskDetail = () => {
   const handleMarkComplete = async () => {
     const token = await AsyncStorage.getItem('userToken');
     try {
-      const response = await fetch('http://10.60.248.178:5000/api/board/updateBoard', {
+      const response = await fetch('http://192.168.1.103:5000/api/board/updateBoard', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -108,7 +108,7 @@ const TaskDetail = () => {
   const deleteTask = async (taskId) => {
     try {
       const token = await AsyncStorage.getItem('userToken');
-      const response = await fetch(`http://10.60.248.178:5000/api/board/deleteBoard`, {
+      const response = await fetch(`http://192.168.1.103:5000/api/board/deleteBoard`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

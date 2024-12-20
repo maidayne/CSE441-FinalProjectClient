@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, TextInput, Button, Text, StyleSheet, Alert } from 'react-native';
+import { View, TextInput, Button, Text, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const EditTask = ({ route, navigation }) => {
@@ -18,7 +18,7 @@ const EditTask = ({ route, navigation }) => {
           return;
         }
 
-        const response = await fetch('http://10.60.248.178:5000/api/board/getBoard', {
+        const response = await fetch('http://192.168.1.103:5000/api/board/getBoard', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const EditTask = ({ route, navigation }) => {
         return;
       }
 
-      const response = await fetch('http://10.60.248.178:5000/api/board/updateBoard', {
+      const response = await fetch('http://192.168.1.103:5000/api/board/updateBoard', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,7 +78,9 @@ const EditTask = ({ route, navigation }) => {
 
       if (response.ok) {
         Alert.alert('Success', 'Task updated successfully.');
-        navigation.navigate("TaskDetail", { taskId });
+        // navigation.navigate("Dashboard", { taskId });
+        navigation.navigate("Dashboard");
+
       } else {
         Alert.alert('Error', data.message || 'Failed to update task.');
       }
@@ -119,30 +121,71 @@ const EditTask = ({ route, navigation }) => {
         style={[styles.input, styles.readOnlyInput]}
       />
 
-      <Button title="Save Task" onPress={handleSave}/>
+      {/* <Button style={styles.button} title="Save Task" onPress={handleSave}/> */}
+
+      <TouchableOpacity style={styles.button} onPress={handleSave}>
+        <Text style={styles.buttonText}>Save Task</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 20,
+    backgroundColor: '#FFFFE3',
   },
   label: {
-    fontSize: 16,
-    fontWeight: '500',
-    marginBottom: 5,
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 8,
+    color: '#E35883',
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    padding: 10,
-    marginBottom: 15,
+    borderColor: '#ddd',
+    borderRadius: 8,
+    padding: 12,
+    marginBottom: 20,
+    fontSize: 16,
+    backgroundColor: '#fff',
+    color: '#333',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   readOnlyInput: {
     backgroundColor: '#f0f0f0',
+    color: '#888',
+  },
+  button: {
+    backgroundColor: '#8EA946',
+    borderRadius: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+  },
+  buttonText: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#fff',
+  },
+  loadingText: {
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: '500',
+    color: '#666',
+    marginTop: 20,
   },
 });
+
 
 export default EditTask;

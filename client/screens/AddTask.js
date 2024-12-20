@@ -322,7 +322,7 @@ const AddTask = ({ navigation, route }) => {
     try {
       const token = await AsyncStorage.getItem('userToken');
 
-      const response = await fetch('http://10.60.248.178:5000/api/board/createBoard', {
+      const response = await fetch('http://192.168.1.103:5000/api/board/createBoard', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

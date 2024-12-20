@@ -19,7 +19,7 @@ const Statistics = () => {
         return;
       }
       console.log('3');
-      const response = await fetch('http://10.60.248.178:5000/api/user/getBasicBoardInfoByUserId', {
+      const response = await fetch('http://192.168.1.103:5000/api/user/getBasicBoardInfoByUserId', {
         method: 'POST',
         headers: {
 

@@ -27,7 +27,7 @@ const LoginScreen = ({ navigation }) => {
     setLoading(true);
     try {
       // Gửi yêu cầu đăng nhập
-      const response = await axios.post('http://10.60.248.178:5000/api/auth/login', {
+      const response = await axios.post('http://192.168.1.103:5000/api/auth/login', {
         user_email: email,
         user_password: password,
         checkMessage: "Login to account",

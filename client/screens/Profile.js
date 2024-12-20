@@ -78,7 +78,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { View, TextInput, TouchableOpacity, Text, StyleSheet, Alert } from 'react-native';
-import axios from 'axios';  // Make sure you have axios installed for API calls
+import axios from 'axios';  
 import { useDerivedValue } from 'react-native-reanimated';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -96,7 +96,7 @@ const Profile = () => {
         navigation.replace('Login'); // Quay về màn hình đăng nhập
         return;
       }
-      const response = await fetch('http://10.60.248.178:5000/api/user/getProfile', {
+      const response = await fetch('http://192.168.1.103:5000/api/user/getProfile', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -132,7 +132,7 @@ const Profile = () => {
         return;
       }
   
-      const response = await fetch('http://10.60.248.178:5000/api/user/updateProfile', {
+      const response = await fetch('http://192.168.1.103:5000/api/user/updateProfile', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
